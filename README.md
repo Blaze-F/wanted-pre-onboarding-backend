@@ -22,7 +22,9 @@ python manage.py runserver
 
 채용공고를 등록합니다. 채용공고를 수정합니다.
 
-![image](https://user-images.githubusercontent.com/101803254/196041536-33f2a8df-7516-49c5-a32b-8dd90e5f0615.png)
+![image](https://user-images.githubusercontent.com/101803254/196050125-18f5fe4f-98e8-4590-a4b5-234cd1b27a2f.png)
+
+### - 기업정보와 채용공고는 서로 다른 테이블에 저장됩니다.
 
 채용공고를 삭제합니다.
 ![image](https://user-images.githubusercontent.com/101803254/196041678-a2758ea5-0e04-449f-95c1-af65b334eae9.png)
