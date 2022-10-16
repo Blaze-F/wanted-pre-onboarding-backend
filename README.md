@@ -1,7 +1,7 @@
 # wanted-pre-onboarding-backend
 ### wanted-pre-onboarding-backend 지원
 
----
+
 ## 사용기술
 
 * Django, SQLite
@@ -9,7 +9,7 @@
 * view : bootstrap
 
 * IDE : Pycharm
----
+
 
 ## 실행방법
 
@@ -17,7 +17,7 @@ python manage.py migrtate
 
 python manage.py runserver
 
----
+
 ## 구현 요소 
 
 채용공고를 등록합니다. 채용공고를 수정합니다.
