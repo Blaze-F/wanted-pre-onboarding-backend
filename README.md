@@ -55,7 +55,7 @@ python manage.py runserver
     - 해당 회사가 올린 다른 채용공고 가 추가적으로 포함됩니다**(선택사항 및 가산점요소).**
     </aside>
     
-![image](https://user-images.githubusercontent.com/101803254/196051707-5509799c-b42d-450e-a831-589c9f93cf12.png)
+![image](https://user-images.githubusercontent.com/101803254/196059803-d377b02d-4b54-4f8b-9d96-0fc09dfd72d3.png)
 
 
 
@@ -86,5 +86,7 @@ python manage.py runserver
 
 모집공고에 대한 CRUD는 작성, 
 Company 모델의 경우 get_or_create() 를 사용, 모든 필드명이 같을경우엔 동일 모델, 하나의 필드라도 다른경우엔 생성하도록 구현하였습니다.
+
+- 해당 회사가 올린 다른 채용공고 기준은 "이름이 동일할 경우" 를 기준으로 구현하였습니다.
 
 후기 : 파이썬은 알고리즘 풀이에만 사용하고, Django로는 처음 만들어보는데, 체감상 소문대로 생산성이 좋은것 같습니다. 
