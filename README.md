@@ -54,6 +54,7 @@ python manage.py runserver
 ![image](https://user-images.githubusercontent.com/101803254/196041903-01cf08a6-2b78-4bf9-a791-11990e8287fd.png)
 
 --- 
+
 6. **사용자는 채용공고에 지원합니다(선택사항 및 가산점요소).**
     
     <aside>
@@ -61,5 +62,9 @@ python manage.py runserver
     
     - 사용자는 1회만 지원 가능합니다.
     </aside>
+    
+- Unit Test 구현
+- README 에 요구사항 분석 및 구현 과정을 작성
+- Git commit 메시지 컨벤션
 
-## 구현중
+
