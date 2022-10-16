@@ -58,7 +58,6 @@ python manage.py runserver
 ![image](https://user-images.githubusercontent.com/101803254/196051707-5509799c-b42d-450e-a831-589c9f93cf12.png)
 
 
---- 구현중인 사항 ---
 
 6. **사용자는 채용공고에 지원합니다(선택사항 및 가산점요소).**
     
@@ -68,6 +67,11 @@ python manage.py runserver
     - 사용자는 1회만 지원 가능합니다.
     </aside>
     
+![image](https://user-images.githubusercontent.com/101803254/196059160-120ed713-7448-48c0-b8ce-dfc329949586.png)
+
+
+* Not yet
+
 - Unit Test 구현
 - README 에 요구사항 분석 및 구현 과정을 작성
 - Git commit 메시지 컨벤션
@@ -77,4 +81,9 @@ python manage.py runserver
 
 ### Note
 
+요구사항 분석 중에 Company 모델을 따로 정의하도록 되어있어서 로그인 이후 모집공고를 작성하면서 동시에 기업 정보도 작성해서 
+폼 두개를 Submit 한번에 처리하도록 구현하였습니다. 
 
+모집공고에 대한 CRUD는 작성, Company에 대한 CRUD는 작성하지 않았습니다. 
+
+후기 : 파이썬은 알고리즘 풀이에만 사용하고, Django로는 처음 만들어보는데, 체감상 소문대로 생산성이 좋은것 같습니다. 
