@@ -16,18 +16,24 @@
         <div class="col-11"> <!-- 질문영역 -->
             <div class="card"> <!--my-3은 위아래 방향 마진 3을 의미-->
                 <div class="card-body">
+                    <h5 class="border-bottom py-2">도시명</h5>
+                    <div class="card-text" style="white-space: pre-line;">{{ job_opening.country }}</div>
+                    <h5 class="border-bottom py-2">지역명</h5>
+                    <div class="card-text" style="white-space: pre-line;">{{ job_opening.location }}</div>
                     <h5 class="border-bottom py-2">회사명</h5>
                     <div class="card-text" style="white-space: pre-line;">{{ job_opening.company }}</div>
                     <h5 class="border-bottom py-2">상세설명</h5>
                     <div class="card-text" style="white-space: pre-line;">{{ job_opening.stack }}</div>
                     <h5 class="border-bottom py-2">사용기술</h5>
-                    <div class="card-text" style="white-space: pre-line;">{{ job_opening.stack }}</div><!--글 내용에 줄 바꿈을 정상적으로 보여주기위해 적용한 스타일-->
-                    {% if request.user == job_opening.author %}
-                    <div class="apply my-3"><!--수정 버튼은 로그인한 사용자와 글쓴이가 동일한 경우에만 노출되도록 {% if request.user == job_opening.author %}을 적용-->
+                    <div class="card-text" style="white-space: pre-line;">{{ job_opening.stack }}</div>
+                    <h5 class="border-bottom py-2">채용보상금</h5>
+                    <div class="card-text" style="white-space: pre-line;">{{ job_opening.reward }}</div>
+                    <!--글 내용에 줄 바꿈을 정상적으로 보여주기위해 적용한 스타일-->
+                    <div class="apply"><!--수정 버튼은 로그인한 사용자와 글쓴이가 동일한 경우에만 노출되도록 {% if request.user == job_opening.author %}을 적용-->
                         <a href="{% url 'preonboard:apply_create' job_opening.id  %}"
                            class="btn btn-sm btn-outline-secondary">지원하기</a>
                     </div>
-                    {% endif %}
+
                     <div class="d-flex justify-content-end">
                         {% if job_opening.modify_date %}
                         <div class="badge badge-light p-2 text-left mx-3">
@@ -40,26 +46,20 @@
                             <div>{{ job_opening.create_date }}</div>
                         </div>
                     </div>
-
-                    {% if request.user == job_opening.author %}
+<!--조건부 html 이 오류가 있음.-->
+<!--                    {% if request.user == job_opening.author %}-->
                     <div class="my-3">
                         <a href="{% url 'preonboard:job_opening_modify' job_opening.id  %}"
                            class="btn btn-sm btn-outline-secondary">수정</a>
                         <a href="{% url 'preonboard:job_opening_delete' job_opening.id  %}" class="delete btn btn-sm btn-outline-secondary"
                           >삭제</a> <!--data-uri 속성은 jQuery에서 $(this).data('uri') 와 같이 사용하여 그 값을 얻을 수 있음-->
                     </div>
-                   {% endif %}
+<!--                   {% endif %}-->
                 </div>
-                <div class="col-4 input-group">
-            <input type="text" class="form-control kw" value="{{ kw|default_if_none:'' }}">
-            <div class="input-group-append">
-                <button class="btn btn-outline-secondary" type="button" id="btn_search">검색</button>
-            </div>
         </div>
     <table class="table">
         <thead>
         <tr class="table-dark">
-            <th>번호</th>
             <th style="width:50%">제목</th>
             <th>작성자</th>
             <th>기업명</th>
