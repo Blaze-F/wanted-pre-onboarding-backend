@@ -11,5 +11,6 @@ urlpatterns = [
     path('job_opening/create/', views.job_opening_create, name='job_opening_create'),
     path('job_opening/modify/<int:job_opening_id>/', views.job_opening_modify, name='job_opening_modify'),
     path('job_opening/delete/<int:job_opening_id>/', views.job_opening_delete, name='job_opening_delete'),
-    path('job_opening/apply/<int:job_opening_id>/', views.apply_create, name='apply_create')
+    path('job_opening/apply/<int:job_opening_id>/', views.apply_create, name='apply_create'),
+    path('apply_list/', views.apply_list, name='apply_list')
 ]
