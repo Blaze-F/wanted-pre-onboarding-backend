@@ -69,6 +69,8 @@ python manage.py runserver
     
 ![image](https://user-images.githubusercontent.com/101803254/196059160-120ed713-7448-48c0-b8ce-dfc329949586.png)
 
+* ERD (사용한 테이블만)
+![preonboard_](https://user-images.githubusercontent.com/101803254/196062301-899e13f8-09ba-4929-bd74-fdf7ccadd54b.png)
 
 * Not yet
 
