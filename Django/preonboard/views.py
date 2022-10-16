@@ -7,7 +7,7 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.utils import timezone
 
 from .forms import JobOpeningForm, CompanyRegisterForm
-from .models import Job_opening, Applicate, Company
+from preonboard.models import Job_opening, Applicate
 
 
 def index(request):
@@ -31,7 +31,7 @@ def detail(request, job_opening_id):
     page = request.GET.get('page', '1')  # 페이지
     job_opening_list = Job_opening.objects.order_by('-create_date')
     job_opening_list = job_opening_list.filter(
-        Q(company__icontains=job_opening.company)  # 회사 이름 검색한 결과로 필터링
+        Q(company__name__icontains=job_opening.company.name)  # 회사 이름 검색한 결과로 필터링
     ).distinct()
     paginator = Paginator(job_opening_list, 10)  # 페이지당 10개씩 보여주기
     page_obj = paginator.get_page(page)
