@@ -3,7 +3,10 @@
 
 ---
 ## 사용기술
+
 Django, SQLite
+
+* IDE : Pycharm
 ---
 
 ## 실행방법
