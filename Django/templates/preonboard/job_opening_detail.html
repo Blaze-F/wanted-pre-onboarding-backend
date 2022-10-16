@@ -29,11 +29,6 @@
                     <h5 class="border-bottom py-2">채용보상금</h5>
                     <div class="card-text" style="white-space: pre-line;">{{ job_opening.reward }}</div>
                     <!--글 내용에 줄 바꿈을 정상적으로 보여주기위해 적용한 스타일-->
-                    <div class="apply"><!--수정 버튼은 로그인한 사용자와 글쓴이가 동일한 경우에만 노출되도록 {% if request.user == job_opening.author %}을 적용-->
-                        <a href="{% url 'preonboard:apply_create' job_opening.id  %}"
-                           class="btn btn-sm btn-outline-secondary">지원하기</a>
-                    </div>
-
                     <div class="d-flex justify-content-end">
                         {% if job_opening.modify_date %}
                         <div class="badge badge-light p-2 text-left mx-3">
@@ -46,15 +41,17 @@
                             <div>{{ job_opening.create_date }}</div>
                         </div>
                     </div>
-<!--조건부 html 이 오류가 있음.-->
-<!--                    {% if request.user == job_opening.author %}-->
+                    <div class="apply">
+                        <a href="{% url 'preonboard:apply_create' job_opening.id  %}"
+                           class="btn btn-sm btn-outline-secondary">지원하기</a>
+                    </div>
                     <div class="my-3">
                         <a href="{% url 'preonboard:job_opening_modify' job_opening.id  %}"
                            class="btn btn-sm btn-outline-secondary">수정</a>
-                        <a href="{% url 'preonboard:job_opening_delete' job_opening.id  %}" class="delete btn btn-sm btn-outline-secondary"
-                          >삭제</a> <!--data-uri 속성은 jQuery에서 $(this).data('uri') 와 같이 사용하여 그 값을 얻을 수 있음-->
+                        <a href="{% url 'preonboard:job_opening_delete' job_opening.id  %}"
+                           class="delete btn btn-sm btn-outline-secondary">삭제</a>
                     </div>
-<!--                   {% endif %}-->
+
                 </div>
         </div>
     <table class="table">
@@ -131,5 +128,4 @@
             </div>
         </div>
     </div>
-{% endif %}
 {% endblock %}

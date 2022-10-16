@@ -57,12 +57,12 @@ def apply_create(request, job_opening_id):
 def job_opening_create(request):
     if request.method == 'POST':
         Company_form = CompanyRegisterForm(request.POST)
-        Job_form = JobOpeningForm(request.POST)
-        if Job_form.is_valid() and Company_form.is_valid():  # 두개의 폼을 동시에 유효성 확인
+        job_form = JobOpeningForm(request.POST)
+        if job_form.is_valid() and Company_form.is_valid():  # 두개의 폼을 동시에 유효성 확인
             Company = Company_form.save(commit=False)
             Company.register = request.user  # Company too
             Company.save()
-            Job_opening = Job_form.save(commit=False)
+            Job_opening = job_form.save(commit=False)
             Job_opening.author = request.user
             Job_opening.company = Company #fk Create
             # author 속성에 로그인 계정 저장
@@ -72,8 +72,8 @@ def job_opening_create(request):
             return redirect('preonboard:index')
     else:
         Company_form = CompanyRegisterForm()
-        Job_form = JobOpeningForm()
-    context = {'Job_form': Job_form, 'Company_form': Company_form}
+        job_form = JobOpeningForm()
+    context = {'job_form': job_form, 'Company_form': Company_form}
     return render(request, 'preonboard/job_opening_form.html', context)
 
 
@@ -87,15 +87,15 @@ def job_opening_modify(request, job_opening_id):
         messages.error(request, '수정권한이 없습니다')
         return redirect('preonboard:detail', job_opening_id=job_opening.id)
     if request.method == "POST":
-        form = JobOpeningForm(request.POST, instance=job_opening)
-        if form.is_valid():
-            job_opening = form.save(commit=False)
+        job_form = JobOpeningForm(request.POST, instance=job_opening)
+        if job_form.is_valid():
+            job_opening = job_form.save(commit=False)
             job_opening.modify_date = timezone.now()  # 수정일시 저장
             job_opening.save()
             return redirect('preonboard:detail', job_opening_id=job_opening.id)
     else:
-        form = JobOpeningForm(instance=job_opening)
-    context = {'form': form}
+        job_form = JobOpeningForm(instance=job_opening)
+    context = {'job_form': job_form}
     return render(request, 'preonboard/job_opening_form.html', context)
 
 
