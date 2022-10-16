@@ -20,7 +20,7 @@ class Job_opening(models.Model):
     modify_date = models.DateTimeField(null=True, blank=True)
 
 class Applicate(models.Model):
-    applicant = models.ForeignKey(User, on_delete=models.CASCADE,unique=True)
+    applicant = models.ForeignKey(User, on_delete=models.CASCADE)
     job_opening = models.ForeignKey(Job_opening, on_delete=models.CASCADE)
     create_date = models.DateTimeField()
     modify_date = models.DateTimeField(null=True, blank=True)

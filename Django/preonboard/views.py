@@ -1,7 +1,6 @@
 # Create your views here.
 import objects
 from django.contrib import messages
-from django.contrib.auth import get_user_model
 from django.contrib.auth.decorators import login_required
 from django.core.paginator import Paginator
 from django.db.models import Q
@@ -40,7 +39,21 @@ def detail(request, job_opening_id):
     context = {'job_opening_list': page_obj, 'page': page, 'job_opening': job_opening}
     return render(request, 'preonboard/job_opening_detail.html', context)
 
-#job opening control
+
+@login_required(login_url='common:login')
+def apply_list(request):
+    applies_list = Applicate.objects.order_by('-create_date')
+    return render(request, applies_list)
+
+
+@login_required(login_url='common:login')
+def apply_create(request, job_opening_id):
+    job_opening = get_object_or_404(Job_opening, pk=job_opening_id)
+    applicate = Applicate(job_opening=job_opening, applicant=request.user, create_date=timezone.now())
+    applicate.save()
+    return redirect('preonboard:detail', job_opening_id=job_opening_id)
+
+
 @login_required(login_url='common:login')
 def job_opening_create(request):
     if request.method == 'POST':
@@ -48,10 +61,7 @@ def job_opening_create(request):
         job_form = JobOpeningForm(request.POST)
         if job_form.is_valid() and company_form.is_valid():
             Company_saved = company_form.save(commit=False)
-            Companies, is_saved = Company.objects.get_or_create(name=Company_saved.name,
-                                                                country=Company_saved.country,
-                                                                register=request.user,
-                                                                location=Company_saved.location)
+            Companies, is_saved = Company.objects.get_or_create(name=Company_saved.name, register=request.user)
             Job_opening = job_form.save(commit=False)
             Job_opening.author = request.user
             Job_opening.company = Companies  # fk Create
@@ -98,22 +108,9 @@ def job_opening_delete(request, job_opening_id):
     job_opening.delete()
     return redirect('preonboard:index')
 
-#Apply Control
+
+# Company
 @login_required(login_url='common:login')
 def apply_list(request):
-    user = request.user
     applies_list = Applicate.objects.order_by('-create_date')
-    filterd = applies_list.filter(
-        Q(applicant__id__exact=user.id)
-    ).distinct()
-
-    context = {'filterd':filterd}
-    return render(request, 'preonboard/job_list.html', context)
-
-
-@login_required(login_url='common:login')
-def apply_create(request, job_opening_id):
-    job_opening = get_object_or_404(Job_opening, pk=job_opening_id)
-    applicate = Applicate(job_opening=job_opening, applicant=request.user, create_date=timezone.now())
-    applicate.save()
-    return redirect('preonboard:index')
+    return render(request, applies_list)
