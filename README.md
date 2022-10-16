@@ -6,7 +6,7 @@
 
 * Django, SQLite
 
-* view 는 bootstrap으로 간단히
+* view : bootstrap
 
 * IDE : Pycharm
 ---
