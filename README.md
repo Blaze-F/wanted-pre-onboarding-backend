@@ -1,6 +1,11 @@
 # wanted-pre-onboarding-backend
 ### wanted-pre-onboarding-backend 지원
 
+---
+## 사용기술
+Django, SQLite
+---
+
 ## 실행방법
 
 python manage.py migrtate
