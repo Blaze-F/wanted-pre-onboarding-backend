@@ -4,7 +4,7 @@
 ---
 ## 사용기술
 
-Django, SQLite
+* Django, SQLite
 
 * IDE : Pycharm
 ---
