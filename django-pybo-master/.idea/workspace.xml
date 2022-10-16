@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="11224055-2feb-4e34-aee3-0bbf50964728" name="Changes" comment="build models">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.vs/PythonSettings.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.vs/VSWorkspaceState.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.vs/django-pybo-master/FileContentIndex/28785e6c-f44b-4dca-afe8-8d9fe19736b0.vsidx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.vs/django-pybo-master/FileContentIndex/54a85ced-9246-4489-96ab-ffbee91b9622.vsidx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.vs/django-pybo-master/FileContentIndex/read.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.vs/django-pybo-master/v17/.suo" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.vs/slnx.sqlite" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/admin.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/apps.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/forms.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/migrations/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/models.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/tests.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/urls.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/views.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/asgi.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/settings.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/urls.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/wsgi.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/django-pybo-master.pyproj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/manage.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pybo/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pybo/admin.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pybo/apps.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pybo/forms.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pybo/migrations/0001_initial.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pybo/migrations/0002_question_author.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pybo/migrations/0003_answer_author.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pybo/migrations/0004_auto_20200813_1924.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pybo/migrations/0005_comment.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pybo/migrations/0006_auto_20200816_2323.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pybo/migrations/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pybo/models.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pybo/templatetags/pybo_filter.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pybo/tests.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pybo/urls.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pybo/views/answer_views.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pybo/views/comment_views.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pybo/views/company_views.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pybo/views/question_views.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pybo/views/vote_views.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/bootstrap.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/bootstrap.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/jquery-3.5.1.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/style.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/base.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/common/login.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/common/signup.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/form_errors.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/navbar.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/pybo/answer_form.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/pybo/comment_form.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/pybo/question_detail.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/pybo/question_form.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/pybo/question_list.html" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2GAHi2t46Tl6uMEBI5h04wYs6oE" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/lionk/Documents/github/wanted-pre-onboarding-backend/django-pybo-master&quot;
+  }
+}</component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="11224055-2feb-4e34-aee3-0bbf50964728" name="Changes" comment="" />
+      <created>1665824591231</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1665824591231</updated>
+    </task>
+    <task id="LOCAL-00001" summary="build models">
+      <created>1665900758677</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1665900758677</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="build models" />
+    <option name="LAST_COMMIT_MESSAGE" value="build models" />
+  </component>
+</project>
