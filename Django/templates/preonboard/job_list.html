@@ -30,7 +30,7 @@
                 <a href="{% url 'preonboard:detail' job_opening.id %}">{{ job_opening.title }}</a>
             </td>
             <td>{{ job_opening.author.username }}</td>
-            <td>{{ job_opening.company }}</td>
+            <td>{{ job_opening.company.name }}</td>
             <td>{{ job_opening.create_date }}</td>
         </tr>
         {% endfor %}

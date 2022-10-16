@@ -17,11 +17,11 @@
             <div class="card"> <!--my-3은 위아래 방향 마진 3을 의미-->
                 <div class="card-body">
                     <h5 class="border-bottom py-2">도시명</h5>
-                    <div class="card-text" style="white-space: pre-line;">{{ job_opening.country }}</div>
+                    <div class="card-text" style="white-space: pre-line;">{{ job_opening.company.country }}</div>
                     <h5 class="border-bottom py-2">지역명</h5>
-                    <div class="card-text" style="white-space: pre-line;">{{ job_opening.location }}</div>
+                    <div class="card-text" style="white-space: pre-line;">{{ job_opening.company.location }}</div>
                     <h5 class="border-bottom py-2">회사명</h5>
-                    <div class="card-text" style="white-space: pre-line;">{{ job_opening.company }}</div>
+                    <div class="card-text" style="white-space: pre-line;">{{ job_opening.company.name }}</div>
                     <h5 class="border-bottom py-2">상세설명</h5>
                     <div class="card-text" style="white-space: pre-line;">{{ job_opening.stack }}</div>
                     <h5 class="border-bottom py-2">사용기술</h5>

@@ -3,15 +3,16 @@ from django.db import models
 
 # Create your models here.
 
-class Job_opening(models.Model):
-    author = models.ForeignKey(User, on_delete=models.CASCADE)
-    company = models.CharField(max_length=200)
-    title = models.CharField(max_length=200)
+class Company(models.Model):
+    name = models.CharField(max_length=200,unique=True)
+    register = models.ForeignKey(User, on_delete=models.CASCADE)
     country = models.CharField(max_length=200)
     location = models.CharField(max_length=200)
+class Job_opening(models.Model):
+    author = models.ForeignKey(User, on_delete=models.CASCADE)
+    company = models.ForeignKey(Company,on_delete=models.CASCADE)
+    title = models.CharField(max_length=200)
     wanted = models.CharField(max_length=200)
-
-
     reward = models.IntegerField()
     content = models.TextField()
     stack = models.TextField()
