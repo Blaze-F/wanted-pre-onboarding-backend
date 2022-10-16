@@ -1,0 +1,135 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="container my-3">  <!--질문이나 답변들은 하나의 뭉치에 해당되므로 부트스트랩의 card 컴포넌트를 사용-->
+    <!-- 사용자오류 표시 -->
+    {% if messages %}
+    <div class="alert alert-danger my-3" role="alert">
+    {% for message in messages %}
+        <strong>{{ message.tags }}</strong>
+        <ul><li>{{ message.message }}</li></ul>
+    {% endfor %}
+    </div>
+    {% endif %}
+    <h2 class="border-bottom py-2">{{ job_opening.title }}</h2>
+    <div class="row my-3">
+        <div class="col-11"> <!-- 질문영역 -->
+            <div class="card"> <!--my-3은 위아래 방향 마진 3을 의미-->
+                <div class="card-body">
+                    <h5 class="border-bottom py-2">회사명</h5>
+                    <div class="card-text" style="white-space: pre-line;">{{ job_opening.company }}</div>
+                    <h5 class="border-bottom py-2">상세설명</h5>
+                    <div class="card-text" style="white-space: pre-line;">{{ job_opening.stack }}</div>
+                    <h5 class="border-bottom py-2">사용기술</h5>
+                    <div class="card-text" style="white-space: pre-line;">{{ job_opening.stack }}</div><!--글 내용에 줄 바꿈을 정상적으로 보여주기위해 적용한 스타일-->
+                    {% if request.user == job_opening.author %}
+                    <div class="apply my-3"><!--수정 버튼은 로그인한 사용자와 글쓴이가 동일한 경우에만 노출되도록 {% if request.user == job_opening.author %}을 적용-->
+                        <a href="{% url 'preonboard:apply_create' job_opening.id  %}"
+                           class="btn btn-sm btn-outline-secondary">지원하기</a>
+                    </div>
+                    {% endif %}
+                    <div class="d-flex justify-content-end">
+                        {% if job_opening.modify_date %}
+                        <div class="badge badge-light p-2 text-left mx-3">
+                            <div class="mb-2">modified at</div>
+                            <div>{{ job_opening.modify_date }}</div>
+                        </div>
+                        {% endif %}
+                        <div class="badge badge-light p-2 text-left"><!--p-2는 padding 2를 의미-->
+                            <div class="mb-2">{{ job_opening.author.username }}</div>
+                            <div>{{ job_opening.create_date }}</div>
+                        </div>
+                    </div>
+
+                    {% if request.user == job_opening.author %}
+                    <div class="my-3">
+                        <a href="{% url 'preonboard:job_opening_modify' job_opening.id  %}"
+                           class="btn btn-sm btn-outline-secondary">수정</a>
+                        <a href="{% url 'preonboard:job_opening_delete' job_opening.id  %}" class="delete btn btn-sm btn-outline-secondary"
+                          >삭제</a> <!--data-uri 속성은 jQuery에서 $(this).data('uri') 와 같이 사용하여 그 값을 얻을 수 있음-->
+                    </div>
+                   {% endif %}
+                </div>
+                <div class="col-4 input-group">
+            <input type="text" class="form-control kw" value="{{ kw|default_if_none:'' }}">
+            <div class="input-group-append">
+                <button class="btn btn-outline-secondary" type="button" id="btn_search">검색</button>
+            </div>
+        </div>
+    <table class="table">
+        <thead>
+        <tr class="table-dark">
+            <th>번호</th>
+            <th style="width:50%">제목</th>
+            <th>작성자</th>
+            <th>기업명</th>
+            <th>작성일시</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% if job_opening_list %}
+        {% for job_opening in job_opening_list %}
+        <tr>
+            <td>
+                <a href="{% url 'preonboard:detail' job_opening.id %}">{{ job_opening.title }}</a>
+            </td>
+            <td>{{ job_opening.author.username }}</td>
+            <td>{{ job_opening.company }}</td>
+            <td>{{ job_opening.create_date }}</td>
+        </tr>
+        {% endfor %}
+        {% else %}
+        <tr>
+            <td colspan="3">없습니다.</td>
+        </tr>
+        {% endif %}
+        </tbody>
+    </table>
+
+    <!-- 페이징처리 시작 -->
+    <ul class="pagination justify-content-center">
+        <!-- 이전페이지 -->
+        {% if job_opening_list.has_previous %}
+        <li class="page-item">
+            <a class="page-link" data-page="{{ job_opening_list.previous_page_number }}"
+           href="javascript:void(0)">이전</a>
+        </li>
+        {% else %}
+        <li class="page-item disabled">
+            <a class="page-link" tabindex="-1" aria-disabled="true" href="#">이전</a>
+        </li>
+        {% endif %}
+        <!-- 페이지리스트 -->
+        {% for page_number in job_opening_list.paginator.page_range %}
+        {% if page_number >= job_opening_list.number|add:-5 and page_number <= job_opening_list.number|add:5 %}
+        {% if page_number == job_opening_list.number %}
+        <li class="page-item active" aria-current="page">
+            <a class="page-link" data-page="{{ page_number }}"
+           href="javascript:void(0)">{{ page_number }}</a>
+        </li>
+        {% else %}
+        <li class="page-item">
+            <a class="page-link" data-page="{{ page_number }}"
+           href="javascript:void(0)">{{ page_number }}</a>
+        </li>
+        {% endif %}
+        {% endif %}
+        {% endfor %}
+        <!-- 다음페이지 -->
+        {% if job_opening_list.has_next %}
+        <li class="page-item">
+            <a class="page-link" data-page="{{ job_opening_list.next_page_number }}"
+           href="javascript:void(0)">다음</a>
+        </li>
+        {% else %}
+        <li class="page-item disabled">
+            <a class="page-link" tabindex="-1" aria-disabled="true" href="#">다음</a>
+        </li>
+        {% endif %}
+    </ul>
+    <!-- 페이징처리 끝 -->
+            </div>
+        </div>
+    </div>
+{% endif %}
+{% endblock %}
