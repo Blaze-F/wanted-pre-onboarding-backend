@@ -4,7 +4,7 @@ from django.db import models
 # Create your models here.
 
 class Company(models.Model):
-    name = models.CharField(max_length=200,unique=True)
+    name = models.CharField(max_length=200)
     register = models.ForeignKey(User, on_delete=models.CASCADE)
     country = models.CharField(max_length=200)
     location = models.CharField(max_length=200)

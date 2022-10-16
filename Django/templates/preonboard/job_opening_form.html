@@ -5,7 +5,7 @@
     <form method="post">
         {% csrf_token %}
         <h5 class="my-3 border-bottom pb-2">기업등록</h5>
-        {{ Company_form.as_p }}
+        {{ company_form.as_p }}
         <h5 class="my-3 border-bottom pb-2">공고등록</h5>
         {{ job_form.as_p }}
         <button type="submit" class="btn btn-primary">등록하기</button>

@@ -1,4 +1,5 @@
 # Create your views here.
+import objects
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.core.paginator import Paginator
@@ -7,7 +8,7 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.utils import timezone
 
 from .forms import JobOpeningForm, CompanyRegisterForm
-from preonboard.models import Job_opening, Applicate
+from preonboard.models import Job_opening, Applicate, Company
 
 
 def index(request):
@@ -16,7 +17,7 @@ def index(request):
     job_opening_list = Job_opening.objects.order_by('-create_date')
     if kw:
         job_opening_list = job_opening_list.filter(
-            Q(company__icontains=kw) |  # 회사 이름 검색
+            Q(company__name__icontains=kw) |  # 회사 이름 검색
             Q(stack__icontains=kw) |  # 사용 기술 검색
             Q(title__icontains=kw)  # 제목 검색
         ).distinct()
@@ -31,7 +32,7 @@ def detail(request, job_opening_id):
     page = request.GET.get('page', '1')  # 페이지
     job_opening_list = Job_opening.objects.order_by('-create_date')
     job_opening_list = job_opening_list.filter(
-        Q(company__name__icontains=job_opening.company.name)  # 회사 이름 검색한 결과로 필터링
+        Q(company__name__exact=job_opening.company.name)  # 회사 이름 검색한 결과로 필터링
     ).distinct()
     paginator = Paginator(job_opening_list, 10)  # 페이지당 10개씩 보여주기
     page_obj = paginator.get_page(page)
@@ -56,24 +57,23 @@ def apply_create(request, job_opening_id):
 @login_required(login_url='common:login')
 def job_opening_create(request):
     if request.method == 'POST':
-        Company_form = CompanyRegisterForm(request.POST)
+        company_form = CompanyRegisterForm(request.POST)
         job_form = JobOpeningForm(request.POST)
-        if job_form.is_valid() and Company_form.is_valid():  # 두개의 폼을 동시에 유효성 확인
-            Company = Company_form.save(commit=False)
-            Company.register = request.user  # Company too
-            Company.save()
+        if job_form.is_valid() and company_form.is_valid():
+            Company_saved = company_form.save(commit=False)
+            Companies, is_saved = Company.objects.get_or_create(name=Company_saved.name, register=request.user)
             Job_opening = job_form.save(commit=False)
             Job_opening.author = request.user
-            Job_opening.company = Company #fk Create
+            Job_opening.company = Companies  # fk Create
             # author 속성에 로그인 계정 저장
             Job_opening.create_date = timezone.now()
             Job_opening.save()
 
             return redirect('preonboard:index')
     else:
-        Company_form = CompanyRegisterForm()
+        company_form = CompanyRegisterForm()
         job_form = JobOpeningForm()
-    context = {'job_form': job_form, 'Company_form': Company_form}
+    context = {'job_form': job_form, 'company_form': company_form}
     return render(request, 'preonboard/job_opening_form.html', context)
 
 
