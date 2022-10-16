@@ -55,7 +55,8 @@ python manage.py runserver
     - 해당 회사가 올린 다른 채용공고 가 추가적으로 포함됩니다**(선택사항 및 가산점요소).**
     </aside>
     
-![image](https://user-images.githubusercontent.com/101803254/196041903-01cf08a6-2b78-4bf9-a791-11990e8287fd.png)
+![image](https://user-images.githubusercontent.com/101803254/196051707-5509799c-b42d-450e-a831-589c9f93cf12.png)
+
 
 --- 구현중인 사항 ---
 
