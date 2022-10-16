@@ -1,0 +1,15 @@
+{% if form.errors %} <!--로그인 실패시에 어떤 이유로 로그인이 실패했는지에 대해서 알려주는 역할-->
+    {% for field in form %}
+        {% for error in field.errors %}  <!-- 필드 오류를 출력한다. -->
+            <div class="alert alert-danger">
+                <strong>{{ field.label }}</strong>
+                {{ error }}
+            </div>
+        {% endfor %}
+    {% endfor %}
+    {% for error in form.non_field_errors %}   <!-- 넌필드 오류를 출력한다. -->
+        <div class="alert alert-danger">
+            <strong>{{ error }}</strong>
+        </div>
+    {% endfor %}
+{% endif %}

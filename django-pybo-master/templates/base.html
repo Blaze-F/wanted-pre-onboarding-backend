@@ -1,0 +1,33 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" type="text/css" href="{% static 'bootstrap.min.css' %}">
+    <!-- app CSS -->
+    <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+    <title>프리온보딩 과제</title>
+</head>
+<body>
+{% include "navbar.html" %}
+
+<!-- 기본 템플릿 안에 삽입될 내용 Start -->
+<!--base.html을 상속한 템플릿에서 구현해야 하는 영역-->
+{% block content %}
+{% endblock %}
+<!-- 기본 템플릿 안에 삽입될 내용 End -->
+
+<!-- jQuery JS -->
+<script src="{% static 'jquery-3.5.1.min.js' %}"></script><!--bootstrap.min.js 는 jquery-3.5.1.min.js를 필요로 하므로 jquery-3.4.1.min.js를 먼저 적어야함.-->
+<!-- Bootstrap JS -->
+<script src="{% static 'bootstrap.min.js' %}"></script>
+
+<!-- 자바스크립트 Start -->
+{% block script %}
+{% endblock %}
+<!-- 자바스크립트 End -->
+</body>
+</html>
