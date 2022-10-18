@@ -69,6 +69,8 @@ python manage.py runserver
     
 ![image](https://user-images.githubusercontent.com/101803254/196059160-120ed713-7448-48c0-b8ce-dfc329949586.png)
 
+* ERD (사용한 테이블만)
+![preonboard_](https://user-images.githubusercontent.com/101803254/196062301-899e13f8-09ba-4929-bd74-fdf7ccadd54b.png)
 
 * Not yet
 
@@ -81,10 +83,10 @@ python manage.py runserver
 
 ### Note
 
-요구사항 분석 중에 Company 모델을 따로 정의하도록 되어있어서 로그인 이후 모집공고를 작성하면서 동시에 기업 정보도 작성해서 
+- 요구사항 분석 중에 Company 모델을 따로 정의하도록 되어있어서 로그인 이후 모집공고를 작성하면서 동시에 기업 정보도 작성해서 
 폼 두개를 Submit 한번에 처리하도록 구현하였습니다. 
 
-모집공고에 대한 CRUD는 작성, 
+- 모집공고에 대한 CRUD는 작성, 
 Company 모델의 경우 get_or_create() 를 사용, 모든 필드명이 같을경우엔 동일 모델, 하나의 필드라도 다른경우엔 생성하도록 구현하였습니다.
 
 - 해당 회사가 올린 다른 채용공고 기준은 "이름이 동일할 경우" 를 기준으로 구현하였습니다.
